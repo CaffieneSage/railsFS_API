@@ -9,17 +9,17 @@ module Api
 
         if params[:species] == "dog"
 
-          @dogs = Pet.find(params[:species] == "dog")
-          render json: @dogs, status: :ok
+          @pets = Pet.find_by species:'dog'
+          render json: @pets, status: :ok
 
         elsif params[:species] == "cat"
 
-          @cats = Pet.find(params[:species] == "cat")
-          render json: @cats, status: :ok
+          @pets = Pet.find_by species: 'cat'
+          render json: @pets, status: :ok
 
         else
 
-          @pets = Pet.all
+          @pets = Pet.order(:name).all
           render json: @pets, status: :ok
         
         end
