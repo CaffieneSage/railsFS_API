@@ -5,8 +5,8 @@ module Api
     class PetsController < ApplicationController
 
       def index
-        pets = []
-        render json: pets, status: :ok
+        @pets = Pet.all
+        render json: @pets, status: :ok
       end
 
     end
